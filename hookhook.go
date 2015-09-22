@@ -221,6 +221,11 @@ func getReddit(w http.ResponseWriter, r *http.Request) {
 }
 
 func hookIt(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "GET" {
+		templates.ExecuteTemplate(w, "slacker", nil)
+		return
+	}
+
 	// Validate request
 	if r.Method != "POST" {
 		return

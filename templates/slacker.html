@@ -1,0 +1,106 @@
+{{define "slacker"}}<!DOCTYPE HTML>
+<html>
+	<head>
+
+		<title>#titsforcommits &middot; Fart Attorney</title>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="{{.Description}}">
+		<meta name="application-name" content="Slacker &middot; Fart Attorney">
+		<meta name="application-url" content="http://slacker.fart.attorney">
+		<meta itemprop="name" content="#titsforcommits">
+		<meta itemprop="description" content="Get boobs in your Slack channel for new commits.">
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="#titsforcommits">
+		<meta name="twitter:description" content="Get boobs in your Slack channel for new commits.">
+		<meta property="og:title" content="#titsforcommits" />
+		<meta property="og:type" content="object" />
+		<meta property="og:url" content="http://slacker.fart.attorney" />
+		<meta property="og:description" content="Get boobs in your Slack channel for new commits." />
+		<meta property="og:site_name" content="Fart Attorney" />
+
+	</head>
+	<body>
+
+		<!--p><a href="http://fart.attorney/">home</a> | <a href="http://fart.attorney/about.php">about</a> | <a href="http://fart.attorney/read/">essays</a></p-->
+
+		<h1>#titsforcommits</h1>
+		<p>Get boobs in your Slack channel for new commits.</p> 
+		<img src="http://fart.attorney/slacker.png" />
+
+		<p>Images are definitely NSFW (and non-pixelated). Preview the real boobs you'll get at <a href="http://busty.fart.attorney">busty.fart.attorney</a>. Make this work the way you want by modifying the <a href="https://github.com/fartattorney/titsforcommits">source</a>.</p>
+
+		<h2>How it Works</h2>
+		<p>#titsforcommits works by receiving a GitHub webhook, scouring reddit for boobs, and then posting said boobs and a witty commit-message-based message to Slack. Its hilarity module is improving, and it is currently using an aggregate of these subreddits:</p>
+		<ul>
+			<li><a href="https://www.reddit.com/r/girlswithglasses">/r/girlswithglasses</a></li>
+			<li><a href="https://www.reddit.com/r/Stacked">/r/Stacked</a></li>
+			<li><a href="https://www.reddit.com/r/gonewild">/r/gonewild</a></li>
+			<li><a href="https://www.reddit.com/r/realgirls">/r/realgirls</a></li>
+			<li><a href="https://www.reddit.com/r/curvy">/r/curvy</a></li>
+			<li><a href="https://www.reddit.com/r/bustypetite">/r/bustypetite</a></li>
+			<li><a href="https://www.reddit.com/r/nsfw_gifs">/r/nsfw_gifs</a></li>
+			<li><a href="https://www.reddit.com/r/Burstingout">/r/Burstingout</a></li>
+			<li><a href="https://www.reddit.com/r/bonermaterial">/r/bonermaterial</a></li>
+		</ul>
+		<p>If there's a subreddit you'd like to see added, we gladly accept <a href="https://github.com/fartattorney/titsforcommits/issues">pull requests</a>.</p>
+
+		<h2>Getting Started</h2>
+
+		<h3>Requirements</h3>
+		<ul>
+			<li>Access to Slack integrations for your team</li>
+			<li>Access to Webhook settings for your GitHub repo (don't know if this is a thing)</li>
+			<li>No boss looking over your shoulder</li>
+		</ul>
+		
+
+		<h3>Setting up Slack</h3>
+		<ol>
+			<li>In your Slack channel, press the &#x25BC; (down arrow) next to your name</li>
+			<li>Navigate to <strong>Configure Integrations</strong></li>
+			<li>Scroll down till you see <em>Incoming WebHooks</em> and press <strong>View</strong></li>
+			<li>In the <em>Post to Channel</em> section, select the channel you'd like boobs to go to by default (you can override this on a per-repo basis later)</li>
+			<li>Click <strong>Add Incoming WebHooks Integration</strong></li>
+			<li>Copy the <em>Webhook URL</em> you see there (e.g. <code>https://hooks.slack.com/services/...</code>) to save for the GitHub hook</li>
+		</ol>
+
+		<h3>Preparing GitHub hook</h3>
+		<p>The GitHub hook's base URL is <em>slacker.fart.attorney</em>. Customize your boobs by altering the <em>slacker.fart.attorney</em> URL. You will need to append one parameter:
+		<ul>
+			<li><strong>hook</strong>: This is the entire Slack Webhook URL you gathered on the previous step.</li>
+		</ul>
+		<p>Your URL will now look like this: <code>http://slacker.fart.attorney?hook=https://hooks.slack.com/services/...</code></p>
+
+		<p>Now you can append any optional parameters:</p>
+		<ul>
+			<li><strong>bot</strong>: bot name that shows up in Slack. Default: <em>commit-bot</em></li>
+			<li><strong>icon</strong>: Slack icon to use for the bot (without surrounding colons). Default: <em>octocat</em></li>
+			<li><strong>chan</strong>: Slack channel to send boobs to (remember to include &quot;<strong>#</strong>&quot; (%23 URL encoded) for channels like <strong>#general</strong>). Default: whatever your Webhook is linked to from Step 4 above.</li>
+			<li><strong>msg</strong>: Default message to accompany your boobs if some wise guy decides to POST to the webhook without a GitHub payload. Default: <em>#titsforcommits</em></li>
+		</ul>
+
+		<h3>Setting up GitHub</h3>
+		<ol>
+			<li>Go to your repo in GitHub</li>
+			<li>Go to <strong>Settings</strong></li>
+			<li>Go to <strong>Webhooks & Services</strong></li>
+			<li>Click <strong>Add webhook</strong></li>
+			<li>Enter the url you constructed in the previous steps</li>
+			<li>Click <strong>Add webhook</strong></li>
+		</ol>
+
+		<h2>Once You Have Boobs</h2>
+		<ul>
+			<li>Continue (or start!) making good commit messages &mdash; i.e. use the <a href="https://git-scm.com/book/ch5-2.html#Commit-Guidelines">imperative present tense</a>. This will make your bot grammatically correct and hilarious.</li>
+			<li>Tip your cam girl. They are sexually empowered and give you something nice to look at.</li>
+			<li>Don't yell at us when a dick shows up unless you're going to <a href="https://github.com/fartattorney/titsforcommits/compare">improve the software</a>.</li>
+			<li>Probably do some work or something.</li>
+		</ul>
+
+		<hr />
+		<footer><small>A <a href="http://fart.attorney">Fart Attorney</a> production.</small></footer>
+	
+	</body>
+</html>{{end}}
