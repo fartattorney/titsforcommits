@@ -1,0 +1,148 @@
+{{define "boobs"}}
+<!DOCTYPE HTML>
+<html>
+	<head>
+
+		<title>{{.Title}}</title>
+
+		<link rel="stylesheet" type="text/css" href="http://fart.attorney/fart.css" />
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="{{.Description}}">
+		<meta name="application-name" content="{{.Title}}">
+		<meta name="application-url" content="http://fart.attorney">
+		<meta itemprop="name" content="{{.Title}}">
+		<meta itemprop="description" content="{{.Description}}">
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="{{.Title}}">
+		<meta name="twitter:description" content="{{.Description}}">
+		<meta property="og:title" content="{{.Title}}" />
+		<meta property="og:type" content="object" />
+		<meta property="og:url" content="http://fart.attorney" />
+		<meta property="og:description" content="{{.Description}}" />
+		<meta property="og:site_name" content="{{.Title}}" />
+		<meta property="og:image" content="{{.Pic}}" />
+		
+		<style type="text/css">
+		#bra.on {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			bottom: 0;
+			text-align: center;
+		}
+		#bra img {
+			width: 100%;
+			height: 100%;
+		}
+		#bra.on img {
+			max-width: 100%;
+			max-height: 100%;
+			min-height: 100%;
+			width: auto;
+			height: auto;
+		}
+		</style>
+
+	</head>
+	<body>
+	
+		<div id="bra">
+			<img id="bewbs" src="{{.Pic}}" />
+		</div>
+
+		<footer>
+			<a id="next" href="/">Next</a>
+			<a href="{{.SourceUrl}}" id="gf" target="_blank">Source</a>
+			<span class="desktop-only"><strong>View:</strong> <a href="#fit" id="multiboob" class="uniboob">No-scroll</a></span>
+			<div style="float: right">
+				<a href="http://fart.attorney/wtf.php">About</a>
+			</div>
+		</footer>
+
+		<script>
+		var $displayBtn = document.getElementById('multiboob');
+		var $nextBtn = document.getElementById('next');
+		var $img = document.getElementById('bewbs');
+		var $imgCont = document.getElementById('bra');
+		var $permalink = document.getElementById('gf');
+		var img = $img.src;
+		var hash = window.location.hash.substring(1);
+
+		var enrobe = function() {
+			$imgCont.className = 'on';
+			$displayBtn.className = 'multiboob';
+			$displayBtn.textContent = 'Full screen';
+			if ($permalink.href.lastIndexOf('#') == -1) {
+				$permalink.href += "#fit";
+			}
+		};
+
+		var disrobe = function() {
+			$imgCont.className = '';
+			$displayBtn.className = 'uniboob';
+			$displayBtn.textContent = 'No-scroll';
+			$permalink.href = $permalink.href.substr(0, $permalink.href.lastIndexOf('#'));
+		};
+
+		if (localStorage['multiboob'] == 'true') {
+			window.location.hash = 'fit';
+			hash = window.location.hash.substring(1);
+		}
+		if (hash == 'fit') {
+			enrobe();
+		}
+
+		window.onhashchange = function() {
+			hash = window.location.hash.substring(1);
+			if (hash == 'fit') {
+				enrobe();
+			} else {
+				disrobe();
+			}
+		};
+
+		$displayBtn.onclick = function(e) {
+			if ($displayBtn.className == 'uniboob') {
+				localStorage['multiboob'] = 'true';
+			} else {
+				e.preventDefault();
+				localStorage['multiboob'] = 'false';
+				disrobe();
+				window.location.hash = '';
+			}
+		};
+
+		window.addEventListener("keydown", function(e){
+			if (e.keyCode == 39) {
+				e.preventDefault()
+				$nextBtn.click();
+			} else if (e.keyCode == 37 || e.keyCode == 72) {
+				e.preventDefault()
+				window.location = window.history.back();
+			} else if (e.keyCode == 76) {
+				e.preventDefault()
+				console.log(window.location.pathname.substring(1));
+			}
+		});
+		</script>
+		<script>
+		WebFontConfig = {
+			google: { families: [ 'Open+Sans:600,400:latin' ] }
+		};
+		(function() {
+			var wf = document.createElement('script');
+			wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+			  '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			wf.type = 'text/javascript';
+			wf.async = 'true';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(wf, s);
+		})(); 
+		</script>
+	
+	</body>
+</html>
+{{end}}

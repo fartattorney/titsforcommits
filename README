@@ -1,0 +1,46 @@
+( . Y . ) ( . Y . ) ( . Y . ) ( . Y . )
+( . Y . )                     ( . Y . )
+( . Y . )   #titsforcommits   ( . Y . )
+( . Y . )                     ( . Y . )
+( . Y . ) ( . Y . ) ( . Y . ) ( . Y . )
+
+                HOW-TO
+
+This webhook uses Bing image search for finding bewbs and posting them to Slack,
+triggered GitHub commits (or really any POST request).
+
+How do you like your boobs?
+---------------------------
+
+Customize results by altering the webhook URL.
+
+http://slacker.fart.attorney
+
+Optional parameters:
+
+  hook  Webhook URL provided by Slack
+        REQUIRED.
+
+  q     Query to search for images
+        Default: best cleavage ever
+
+  bot   Bot name in Slack
+        Default: push bot
+
+  chan  Channel in Slack to post to
+        Default: mobile
+
+  msg   Message to display along with pic
+        Default: #titsforcommits
+
+Add GitHub hook
+---------------
+
+1. Go to repo
+2. Go to Settings
+3. Go to Webhooks & Services
+4. Click Add webhook
+5. Enter the url you previously constructed in Payload URL
+6. Click Add webhook
+
+
