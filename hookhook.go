@@ -236,7 +236,7 @@ func hookIt(w http.ResponseWriter, r *http.Request) {
 		hook = slackHook
 	}
 	if hook == "" {
-		respondError(w, http.StatusBadRequest, "Required hook URL.")
+		respondError(w, http.StatusBadRequest, "Need a Slack hook URL to post this to.\nSee http://slacker.fart.attorney for instructions.")
 		return
 	}
 
