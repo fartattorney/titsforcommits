@@ -38,7 +38,7 @@ var (
 	query          string
 	botName        string
 	message        string
-	subreddits     = "girlswithglasses+Stacked+gonewild+realgirls+curvy+bustypetite+nsfw_gifs+Burstingout+bonermaterial"
+	subreddits     = "girlswithglasses+Stacked+gonewild+realgirls+curvy+bustypetite+nsfw_gifs+Burstingout+bonermaterial+facedownassup+pawg+girlsinmessyrooms"
 )
 
 type (
