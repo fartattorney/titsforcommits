@@ -453,6 +453,7 @@ func fetchReddit(after string, client *http.Client) *Subreddit {
 	}
 
 	req, err := http.NewRequest("GET", redditUrl, nil)
+	req.Header.Set("User-Agent", "fart attorney/1.0 (http://slacker.fart.attorney)")
 	resp, err := client.Do(req)
 	if err != nil {
 		fmt.Printf("GET err: %s\n", err)
