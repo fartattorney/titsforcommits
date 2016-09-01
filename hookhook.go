@@ -420,7 +420,7 @@ func hookIt(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Prepare JSON post to Slack
-	jsonStr := fmt.Sprintf("{\"username\":\"%s\",\"icon_emoji\":\":%s:\",\"channel\":\"%s\",\"attachments\":[{\"fallback\":\"%s - %s\",\"pretext\":\"%s\",\"text\":\"<%s|Source>\",\"color\":\"#eee\",\"image_url\":\"%s\"}]}", botN, ic, ch, escapeQuotes(msg), pic, escapeQuotes(msg), sourcePic, pic)
+	jsonStr := fmt.Sprintf("{\"response_type\": \"in_channel\", \"username\":\"%s\",\"icon_emoji\":\":%s:\",\"channel\":\"%s\",\"attachments\":[{\"fallback\":\"%s - %s\",\"pretext\":\"%s\",\"text\":\"<%s|Source>\",\"color\":\"#eee\",\"image_url\":\"%s\"}]}", botN, ic, ch, escapeQuotes(msg), pic, escapeQuotes(msg), sourcePic, pic)
 	if *debug {
 		fmt.Printf("DEBUG: %s\n\n", jsonStr)
 	}
